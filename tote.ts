@@ -41,7 +41,7 @@ const parseScore = (score: string): IScore => {
  * Calculates points for each user based on their predictions and the actual result.
  * @param {IPredictions} predictions - The predictions made by each user.
  * @param {string} actualResult - The actual result.
- * @returns {Object} - An object containing each user and their corresponding points.
+ * @returns {IUserPoints} - An object containing each user and their corresponding points.
  */
 const calculatePoints = (predictions: IPredictions, actualResult: string): IUserPoints => {
     const actualScore = parseScore(actualResult);
