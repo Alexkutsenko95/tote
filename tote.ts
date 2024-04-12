@@ -19,6 +19,14 @@ interface IPredictions {
 }
 
 /**
+ * Represents the points associated with each user.
+ * @interface
+ */
+interface IUserPoints {
+    [user: string]: number
+}
+
+/**
  * Parses a score string and returns the score as an object.
  *
  * @param {string} score - The score string in the format "home:away".
@@ -35,9 +43,9 @@ const parseScore = (score: string): IScore => {
  * @param {string} actualResult - The actual result.
  * @returns {Object} - An object containing each user and their corresponding points.
  */
-const calculatePoints = (predictions: IPredictions, actualResult: string): { [user: string]: number } => {
+const calculatePoints = (predictions: IPredictions, actualResult: string): IUserPoints => {
     const actualScore = parseScore(actualResult);
-    const userPoints: { [user: string]: number } = {};
+    const userPoints: IUserPoints = {};
 
     Object.entries(predictions).forEach(([user, guess]) => {
         const guessedScore = parseScore(guess); // Ensure we are parsing the guess correctly
